@@ -1,0 +1,49 @@
+﻿@model Zoo.Web.Models.LionCreateViewModel
+
+@{
+    ViewData["Title"] = "CreateLion";
+}
+
+<h1>CreateLion</h1>
+
+<h4>LionCreateViewModel</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="CreateLion">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="Nom" class="control-label"></label>
+                <input asp-for="Nom" class="form-control" />
+                <span asp-validation-for="Nom" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label>Male</label>
+                <input type="radio" asp-for="Sexe" value="0"/>
+                <label>Femelle</label>
+                <input type="radio" asp-for="Sexe" value="1"/>
+                <span asp-validation-for="Sexe" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Couleur" class="control-label"></label>
+                <select asp-for="Couleur" class="form-control">
+                    <option>Blanc</option>
+                    <option>Noir</option>
+                    <option>Fauve</option>
+                </select>
+                <span asp-validation-for="Couleur" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Create" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-action="Index">Back to List</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}
